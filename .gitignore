@@ -1,0 +1,5 @@
+temp-nbs/*
+*.pdf
+bin/*
+*__pycache__*
+.env
