@@ -8,7 +8,7 @@ app = Flask(__name__)
 gem = Gemini()
 sel = Selenium()
 
-DEBUG=True
+DEBUG=False
 TEST_STR = '''FIRM The law firm of main character Mitch McDeere
 VESPER Client of Rudy Baylor who's paralyzed in the novel The Rainmaker
 CALLMISTER Bruce Cable, the main villain from The Client

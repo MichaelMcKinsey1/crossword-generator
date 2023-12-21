@@ -3,3 +3,4 @@ temp-nbs/*
 bin/*
 *__pycache__*
 .env
+ngrok.exe

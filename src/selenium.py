@@ -1,5 +1,6 @@
 import os
 import base64
+import platform
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -23,13 +24,16 @@ WORD_CLUE_XPATH='/html/body/div/div[2]/div/div/div[2]/form/textarea'
 
 ANSWER_XPATH='/html/body/div[1]/div[1]/div[1]/div[2]/div[1]/label'
 
+if platform.system() == 'Windows':
+    DRIVER_PATH = 'bin/chrome-headless-shell-win64/chrome-headless-shell.exe'
+else:
+    DRIVER_PATH = 'bin/chrome-headless-shell-linux64/chrome-headless-shell'
 
 class Selenium:
     def __init__(
         self,
-        driver_path='bin/chrome-headless-shell-win64\chrome-headless-shell.exe'
     ):
-        self.driver_path = driver_path
+        self.driver_path = DRIVER_PATH
         # setup binary location
         options = webdriver.ChromeOptions()
         options.binary_location = self.driver_path
