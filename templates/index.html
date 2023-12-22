@@ -1,22 +1,40 @@
+<!--https://www.w3schools.com/w3css/tryw3css_templates_black.htm-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/w3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/w3-theme-black.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/custom.css') }}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crossword Generator</title>
+    <style>
+        body {
+            background-image: url('static/images/background.png');
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Crossword Generator</h1>
 
-    <form method="post" action="{{ url_for('index') }}">
-        <label for="submission_text">Enter a topic to generate a crossword puzzle for:</label>
-        <input type="text" id="submission_text" name="submission_text" required>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="centered" style="width: 50%; height: 30%; border: 1px solid black; background:white">
+        <h1>Crossword Generator</h1>
+
+        <form method="post" action="{{ url_for('index') }}">
+            <label for="submission_text">Enter a topic to generate a crossword puzzle:</label>
+            <br><br>
+            <input type="text" id="submission_text" name="submission_text" required>
+            <br><br>
+            <div class="w3-container">
+                <button class="w3-btn w3-theme"
+                    onclick="this.disabled=true;this.value='Submitting...'; this.form.submit();">Submit</button>
+            </div>
+        </form>
+    </div>
+
 </body>
 
 </html>
