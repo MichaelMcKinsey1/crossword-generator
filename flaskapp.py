@@ -1,3 +1,5 @@
+import os
+import json
 from flask import Flask, send_file, render_template, request
 
 from src.selenium import Selenium
@@ -7,6 +9,9 @@ app = Flask(__name__)
 
 gem = Gemini()
 sel = Selenium()
+
+# Set google creds for remote server
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "service_account.json"
 
 DEBUG=False
 TEST_STR = '''FIRM The law firm of main character Mitch McDeere

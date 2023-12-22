@@ -24,11 +24,9 @@ WORD_CLUE_XPATH='/html/body/div/div[2]/div/div/div[2]/form/textarea'
 
 ANSWER_XPATH='/html/body/div[1]/div[1]/div[1]/div[2]/div[1]/label'
 
-if platform.system() == 'Windows':
+DRIVER_PATH = None # if remote
+if platform.system() == 'Windows': # if local
     DRIVER_PATH = 'bin/chrome-headless-shell-win64/chrome-headless-shell.exe'
-else:
-    DRIVER_PATH = 'bin/chrome-headless-shell-linux64/chrome-headless-shell'
-
 class Selenium:
     def __init__(
         self,
@@ -36,7 +34,12 @@ class Selenium:
         self.driver_path = DRIVER_PATH
         # setup binary location
         options = webdriver.ChromeOptions()
-        options.binary_location = self.driver_path
+        options.add_argument("--no-sandbox")
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-dev-shm-usage")
+        if DRIVER_PATH: # If we're running locally
+            options.binary_location = self.driver_path
         self.options = options
     
     def get_xword(self, word_clue_str, topic, output_filename='xword.pdf'):
