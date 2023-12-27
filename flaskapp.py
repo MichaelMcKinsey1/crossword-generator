@@ -29,11 +29,15 @@ CHARLIE A boy who's taken in by the Ryans of Vicksburg in The Rainmaker'''
 def index():
     if request.method == 'POST':
         topic = request.form['submission_text']
+        numclues = request.form.get('numclues')
+        difficulty = request.form.get('difficulty')
+        print(topic, numclues, difficulty)
+        print(type(topic), type(numclues), type(difficulty))
         if DEBUG:
             words_clues_str = TEST_STR
             pass
         else:
-            words_clues_str = gem.generate_words_clues(topic)
+            words_clues_str = gem.generate_words_clues(topic, numclues, difficulty)
             crossword_path = sel.get_xword(words_clues_str, topic)
         print(words_clues_str)
         return render_template('submitted.html')

@@ -20,13 +20,28 @@
 
 <body>
 
-    <div class="centered" style="width: 1000px; height: 1200px; border: 1px solid black; background:white">
+    <div class="centered" style="width: 1000px; height: 1300px; border: 1px solid black; background:white">
         <h1>Crossword Generator</h1>
 
         <hr>
         
-        <form method="post" action="{{ url_for('index') }}">
+        <form method="POST" action="{{ url_for('index') }}">
             <label for="submission_text"><i>Enter a topic to generate a randomized crossword puzzle:</i></label>
+            <br><br>
+            <label for="numclues">Number of clues:</label> 
+                <select name="numclues" id="numclues"> 
+                    <option value="10">10</option> 
+                    <option value="20">20</option> 
+                    <option value="30">30</option> 
+                    <option value="40">40</option> 
+                </select>
+            <br>
+            <label for="difficulty">Difficulty:</label> 
+                <select name="difficulty" id="difficulty">
+                    <option value="Hard">Hard</option> 
+                    <option value="Medium">Medium</option> 
+                    <option value="Easy">Easy</option> 
+                </select>
             <br><br>
             <input type="text" id="submission_text" name="submission_text" required>
             <br><br>

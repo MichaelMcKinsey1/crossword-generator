@@ -61,7 +61,7 @@ class Selenium:
         submit_button.click()
 
         # Wait for load
-        elem = WebDriverWait(driver, 10).until(
+        elem = WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.XPATH, ANSWER_XPATH))
         )
 
