@@ -1,6 +1,5 @@
 import os
-import json
-from flask import Flask, send_file, render_template, request
+from flask import Flask, render_template, request
 
 from src.selenium import Selenium
 from src.gemini import Gemini

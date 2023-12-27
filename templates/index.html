@@ -20,11 +20,13 @@
 
 <body>
 
-    <div class="centered" style="width: 50%; height: 30%; border: 1px solid black; background:white">
+    <div class="centered" style="width: 1000px; height: 1200px; border: 1px solid black; background:white">
         <h1>Crossword Generator</h1>
 
+        <hr>
+        
         <form method="post" action="{{ url_for('index') }}">
-            <label for="submission_text">Enter a topic to generate a crossword puzzle:</label>
+            <label for="submission_text"><i>Enter a topic to generate a randomized crossword puzzle:</i></label>
             <br><br>
             <input type="text" id="submission_text" name="submission_text" required>
             <br><br>
@@ -33,6 +35,14 @@
                     onclick="this.disabled=true;this.value='Submitting...'; this.form.submit();">Submit</button>
             </div>
         </form>
+
+        <hr>
+
+        <div>
+            For example: The input <b>"Harry Potter"</b> will generate a randomized crossword puzzle like
+        </div>
+        <br><br>
+        <img src='static/images/harry_potter.png' height="800">
     </div>
 
 </body>

@@ -3,7 +3,7 @@ import os
 
 import google.generativeai as genai
 
-PROMPT1 = '''Generate a difficult crossword puzzle on the topic of "'''
+PROMPT1 = '''Generate a challenging crossword puzzle on the topic of "'''
 PROMPT2 = '''" trivia.'''
 RULES = ''' The following are instructions for the format and rules to follow:
  1. Generate 10 ANSWER/CLUE pairs in total.
